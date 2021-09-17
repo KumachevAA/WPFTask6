@@ -7,7 +7,7 @@
         <Setter Property="Padding" Value="10"/>
         <Setter Property="FontSize" Value="16"/>
     </Style>
-    
+
     <Style TargetType="TextBox" x:Key="TextBoxStyle">
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Padding" Value="0"/>
@@ -18,7 +18,7 @@
     <Style TargetType="Button" x:Key="ButtonStyle">
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Padding" Value="5"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="14"/>
     </Style>
 
     <Style TargetType="CheckBox" x:Key="CheckboxStyle">
@@ -29,6 +29,12 @@
     </Style>
 
     <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Background" Value="LightGray" />
+    </Style>
+
+    <Style TargetType="ListView" x:Key="ListViewStyle">
         <Setter Property="Padding" Value="4" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="Background" Value="LightGray" />
