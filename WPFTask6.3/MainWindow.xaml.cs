@@ -20,8 +20,9 @@ namespace WPFTask6._3
     /// </summary>
     public partial class MainWindow : Window
     {
-        DirectoryInfo currentDirectory;
-        FileSystemInfo[] entries;
+        private DirectoryInfo currentDirectory;
+        private FileSystemInfo[] entries;
+        private FileInfo openedFile;
 
         void UpdateFileSystemEntries(string path)
         {
@@ -82,8 +83,66 @@ namespace WPFTask6._3
                     }
                     else if (entry is FileInfo file)
                     {
-                        MessageBox.Show("File selected");
+                        openedFile = null;
+                        textEditor.Text = string.Empty;
+
+                        try
+                        {
+                            textEditor.Text = File.ReadAllText(file.FullName);
+                            openedFile = file;
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show($"Не удалось открыть файл {file.FullName}");
+                        }
                     }
+                }
+            }
+        }
+
+        private void TextEditor_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (openedFile != null)
+            {
+                if (openedFile.Exists)
+                {
+                    try
+                    {
+                        File.WriteAllText(openedFile.FullName, textEditor.Text);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ошибка записи в файл. Возможно, у вас отсутствует право на запись");
+                    }
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateFileSystemEntries(PathInput.Text);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string path = Path.Combine(currentDirectory.FullName, FileNameInput.Text);
+
+            if (!File.Exists(path))
+            {
+                StreamWriter str = null;
+                try
+                {
+                    // создание нового файла
+                    str = File.CreateText(path);
+                    UpdateFileSystemEntries(currentDirectory.FullName);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Не удалось создать файл");
+                }
+                finally
+                {
+                    str?.Dispose();
                 }
             }
         }

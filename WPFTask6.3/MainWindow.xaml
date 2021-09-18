@@ -16,10 +16,11 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
         </Grid.RowDefinitions>
 
         <TextBox Name="PathInput" FontSize="10" VerticalContentAlignment="Center" Margin="3" />
-        <Button Grid.Column="1" Content="Перейти" FontSize="10" Margin="3"/>
+        <Button Grid.Column="1" Content="Перейти" FontSize="10" Margin="3" Click="Button_Click"/>
 
         <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2">
             <ListView Name="FileExplorer">
@@ -29,6 +30,17 @@
                     </Style>
                 </ListView.ItemContainerStyle>
             </ListView>
+        </ScrollViewer>
+
+        <TextBox Name="FileNameInput" FontSize="10" Grid.Row="2" VerticalContentAlignment="Center" Margin="3" />
+        <Button Grid.Column="1" Grid.Row="2" Content="Создать" FontSize="10" Margin="3" Click="Button_Click_1"/>
+
+        <ScrollViewer Grid.Column="2" Grid.RowSpan="3">
+            <TextBox Name="textEditor"
+                     AcceptsReturn="True" TextWrapping="Wrap"
+                     VerticalContentAlignment="Top"
+                     HorizontalContentAlignment="Left"
+                     TextChanged="TextEditor_TextChanged"/>
         </ScrollViewer>
     </Grid>
 </Window>
