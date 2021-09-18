@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTask6._3"
         mc:Ignorable="d"
-        Title="Задание 6.1" Height="450" Width="800">
+        Title="Задание 6.3" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
@@ -22,7 +23,11 @@
 
         <ScrollViewer Grid.Row="1" Grid.ColumnSpan="2">
             <ListView Name="FileExplorer">
-                
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="PreviewMouseUp" Handler="ListViewItem_Preview"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </ScrollViewer>
     </Grid>
