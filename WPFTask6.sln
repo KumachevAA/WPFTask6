@@ -4,6 +4,7 @@ VisualStudioVersion = 15.0.28307.1622
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTask6.1", "WPFTask6.1\WPFTask6.1.csproj", "{4F4E8C8E-A17D-44FF-84E2-6901403511E9}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTask6.3", "WPFTask6.3\WPFTask6.3.csproj", "{1B524E0A-F024-4E66-B0B4-4CF229354005}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTask6.4", "WPFTask6.4\WPFTask6.4.csproj", "{CDA2C3F7-C996-49F2-A9A8-21610EB2B6DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +20,10 @@ Global
 		{1B524E0A-F024-4E66-B0B4-4CF229354005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B524E0A-F024-4E66-B0B4-4CF229354005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B524E0A-F024-4E66-B0B4-4CF229354005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDA2C3F7-C996-49F2-A9A8-21610EB2B6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDA2C3F7-C996-49F2-A9A8-21610EB2B6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDA2C3F7-C996-49F2-A9A8-21610EB2B6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDA2C3F7-C996-49F2-A9A8-21610EB2B6DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
