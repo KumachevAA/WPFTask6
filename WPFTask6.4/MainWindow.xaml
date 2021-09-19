@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFTask6._4"
-        xmlns:views="clr-namespace:WPFTask6._4.Views"
         mc:Ignorable="d"
         Title="Задание 6.4" Height="450" Width="300"
         Loaded="Window_Loaded">
@@ -15,11 +14,11 @@
         </Grid.RowDefinitions>
 
         <ScrollViewer >
-            <TreeView VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Name="Explorer" TreeViewItem.Expanded="Explorer_Expanded"/>
+            <TreeView VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Name="Explorer" TreeViewItem.Expanded="Explorer_Expanded" UIElement.PreviewMouseUp="Explorer_PreviewMouseUp" />
         </ScrollViewer>
 
         <ScrollViewer Grid.Row="1">
-            <TextBlock TextAlignment="Left" FontSize="14"/>
+            <TextBlock Name="dataBox" TextAlignment="Left" FontSize="14"/>
         </ScrollViewer>
     </Grid>
 </Window>

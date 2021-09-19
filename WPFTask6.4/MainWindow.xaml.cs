@@ -90,5 +90,66 @@ namespace WPFTask6._4
                 Explorer.Items.Add(item);
             }
         }
+
+        void SetData(TreeViewItem item)
+        {
+            FileSystemModel selected = ItemEntries[item];
+            FileSystemInfo info;
+
+            switch (selected.EntryType)
+            {
+                case EntryType.Directory:
+                    info = new DirectoryInfo(selected.FullName);
+                    break;
+
+                case EntryType.Drive:
+                    info = new DirectoryInfo(selected.FullName);
+                    break;
+
+                case EntryType.File:
+                    info = new FileInfo(selected.FullName);
+                    break;
+
+                default:
+                    info = null;
+                    break;
+            }
+
+            if (info == null)
+                return;
+
+            List<string> attributes = new List<string>();
+
+            if (info.Attributes.HasFlag(FileAttributes.ReadOnly))
+                attributes.Add("Только чтение");
+
+            if (info.Attributes.HasFlag(FileAttributes.Hidden))
+                attributes.Add("Скрытый");
+
+            if (info.Attributes.HasFlag(FileAttributes.System))
+                attributes.Add("Системный");
+
+            if (info.Attributes.HasFlag(FileAttributes.Archive))
+                attributes.Add("Сжатый");
+
+            string creation = info.CreationTime.ToString();
+            string access = info.LastAccessTime.ToString();
+            string write = info.LastWriteTime.ToString();
+
+            dataBox.Text = $"Атрибуты: {string.Join(", ", attributes.ToArray())}" + Environment.NewLine +
+                $"Время создания: {creation}" + Environment.NewLine +
+                $"Последнее чтение: {access}" + Environment.NewLine +
+                $"Последняя запись: {write}" + Environment.NewLine +
+                $"Полное имя: {selected.FullName}" + Environment.NewLine +
+                $"Имя: {selected.Name}";
+        }
+
+        private void Explorer_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.Source is TreeViewItem item)
+            {
+                SetData(item);
+            }
+        }
     }
 }
